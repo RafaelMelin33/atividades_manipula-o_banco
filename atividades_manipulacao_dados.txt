@@ -1,0 +1,18 @@
+SELECT nome, especialidade
+  FROM veterinario
+ WHERE especialidade = 'dermatologia'
+ 
+SELECT nome, especie, idade, peso id_tutor
+  FROM PACIENTE
+ WHERE idade BETWEEN 2 AND 5
+ 
+SELECT nome, descricao, preco
+  FROM MEDICAMENTOS
+ WHERE preco > 25
+ 
+SELECT r.id_receita, r.DATA_EMISSAO 
+  FROM receita r,
+ WHERE r.data_emissao BETWEEN '01-01-2025' AND '08-21-2025' 
+  AND r.ID_AGENDAMENTO = (SELECT a.id_agendamento FROM AGENDAMENTO a 
+                         WHERE a.id_veterinario =(SELECT v.id_veterinario FROM VETERINARIO v 
+                          WHERE v.nome = 'Dr. Enzo')
